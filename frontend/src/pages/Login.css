@@ -1,0 +1,140 @@
+.login-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* Panel kiri - identitas klinik */
+.login-brand {
+  background: linear-gradient(165deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-8);
+}
+
+.login-brand-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-brand-text {
+  margin-top: var(--space-6);
+}
+
+.login-brand-text h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.login-brand-text p {
+  margin-top: var(--space-2);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.login-brand-footer p {
+  max-width: 360px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Panel kanan - form */
+.login-form-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+.login-form {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.login-form h2 {
+  font-size: 22px;
+}
+
+.login-form-subtitle {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  margin-top: calc(var(--space-1) * -1);
+  margin-bottom: var(--space-2);
+}
+
+.login-error {
+  background: #fdf0ee;
+  border: 1px solid #f2c6bd;
+  color: var(--color-danger);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.field span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.field input {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.field input:focus {
+  border-color: var(--color-primary);
+}
+
+.btn-primary {
+  margin-top: var(--space-2);
+  padding: 11px 16px;
+  background: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsif - di layar sempit, panel kiri disembunyikan supaya form jadi fokus utama */
+@media (max-width: 760px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-brand {
+    display: none;
+  }
+}

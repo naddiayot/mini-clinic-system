@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Warna utama - teal klinis, menenangkan & profesional */
+  --color-primary: #0b6e64;
+  --color-primary-dark: #084f48;
+  --color-primary-light: #e3f2ef;
+
+  /* Warna aksen - amber hangat, dipakai terbatas untuk highlight/status */
+  --color-accent: #d97a34;
+
+  /* Status */
+  --color-success: #1e8a5f;
+  --color-danger: #c0392b;
+  --color-warning: #d97a34;
+
+  /* Netral */
+  --color-bg: #f5f7f6;
+  --color-surface: #ffffff;
+  --color-text: #1b2523;
+  --color-text-muted: #5b6b68;
+  --color-border: #dde3e1;
+
+  /* Tipografi */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-8: 48px;
+
+  /* Radius & shadow - dipakai konsisten, tidak seragam di semua elemen */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --shadow-card: 0 1px 3px rgba(11, 37, 33, 0.08), 0 1px 2px rgba(11, 37, 33, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* Fokus keyboard tetap terlihat jelas (aksesibilitas) */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
