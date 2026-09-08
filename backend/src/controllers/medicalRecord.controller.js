@@ -14,11 +14,11 @@ async function createMedicalRecord(req, res) {
       height,
       diagnosis,
       treatment_plan,
-      actions,        // array of string, opsional
-      prescriptions,  // array of object, opsional
+      actions,        
+      prescriptions,  
     } = req.body;
 
-    // Validasi dasar
+    
     const errors = {};
     if (!registration_id) errors.registration_id = 'registration_id wajib diisi';
     if (!diagnosis) errors.diagnosis = 'Diagnosa wajib diisi';
