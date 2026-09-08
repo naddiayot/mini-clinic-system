@@ -1,4 +1,3 @@
-// src/controllers/registration.controller.js
 
 const pool = require('../config/db');
 const { successResponse, errorResponse } = require('../utils/response');

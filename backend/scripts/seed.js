@@ -1,9 +1,3 @@
-// scripts/seed.js
-// Script ini dijalankan SEKALI SAJA (manual, lewat terminal) untuk membuat
-// akun login default. Password di-hash dulu pakai bcrypt sebelum disimpan,
-// supaya password asli tidak pernah tersimpan dalam bentuk teks biasa.
-//
-// Cara jalankan: node scripts/seed.js
 
 require('dotenv').config();
 const bcrypt = require('bcryptjs');

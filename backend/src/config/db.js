@@ -1,6 +1,3 @@
-// src/config/db.js
-// File ini bertugas membuat koneksi (pool) ke database PostgreSQL
-// yang akan dipakai di seluruh bagian aplikasi.
 
 const { Pool } = require('pg');
 require('dotenv').config();

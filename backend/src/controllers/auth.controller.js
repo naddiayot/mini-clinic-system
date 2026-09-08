@@ -1,4 +1,3 @@
-// src/controllers/auth.controller.js
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -28,14 +27,14 @@ async function login(req, res) {
 
     const user = result.rows[0];
 
-    // Bandingkan password yang diinput dengan hash yang tersimpan
+    
     const isPasswordValid = await bcrypt.compare(password, user.password_hash);
 
     if (!isPasswordValid) {
       return errorResponse(res, 'Email atau password salah', {}, 401);
     }
 
-    // Buat token JWT, isinya info penting user (jangan simpan password di sini!)
+   
     const token = jwt.sign(
       { id: user.id, name: user.name, email: user.email, role: user.role },
       process.env.JWT_SECRET,
@@ -58,10 +57,7 @@ async function login(req, res) {
 }
 
 async function logout(req, res) {
-  // Catatan: karena JWT bersifat stateless (server tidak menyimpan sesi),
-  // proses "logout" yang sesungguhnya cukup dilakukan di sisi frontend
-  // dengan cara menghapus token yang tersimpan (misal dari localStorage).
-  // Endpoint ini disediakan supaya frontend punya endpoint resmi untuk dipanggil.
+ 
   return successResponse(res, 'Logout berhasil', {});
 }
 
