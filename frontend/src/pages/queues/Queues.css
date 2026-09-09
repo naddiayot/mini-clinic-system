@@ -1,0 +1,24 @@
+.queue-now-calling {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--color-primary-dark);
+  color: #ffffff;
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+}
+
+.queue-now-label {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.queue-now-number {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.queue-now-patient {
+  font-size: 14px;
+  opacity: 0.9;
+}

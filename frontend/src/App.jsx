@@ -6,6 +6,9 @@ import PatientForm from './pages/patients/PatientForm';
 import PatientDetail from './pages/patients/PatientDetail';
 import Registrations from './pages/registrations/Registrations';
 import RegistrationForm from './pages/registrations/RegistrationForm';
+import Queues from './pages/queues/Queues';
+import Examinations from './pages/examinations/Examinations';
+import MedicalRecordForm from './pages/examinations/MedicalRecordForm';
 import ProtectedRoute from './routes/ProtectedRoute';
 
 function App() {
@@ -76,8 +79,32 @@ function App() {
         }
       />
 
-      {/* Halaman Antrean, Pemeriksaan akan ditambahkan
-          di sini bertahap, mengikuti pola yang sama seperti /dashboard */}
+      <Route
+        path="/queues"
+        element={
+          <ProtectedRoute>
+            <Queues />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/examinations"
+        element={
+          <ProtectedRoute>
+            <Examinations />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/examinations/:registrationId"
+        element={
+          <ProtectedRoute>
+            <MedicalRecordForm />
+          </ProtectedRoute>
+        }
+      />
 
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
       <Route path="*" element={<Navigate to="/dashboard" replace />} />

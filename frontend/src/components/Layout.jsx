@@ -38,7 +38,7 @@ function Layout({ children, title }) {
           <NavLink to="/queues" className="sidebar-link">
             Antrean
           </NavLink>
-          <NavLink to="/medical-records" className="sidebar-link">
+          <NavLink to="/examinations" className="sidebar-link">
             Pemeriksaan
           </NavLink>
         </nav>
