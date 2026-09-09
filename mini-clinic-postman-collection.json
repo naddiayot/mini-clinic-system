@@ -1,0 +1,463 @@
+{
+  "info": {
+    "_postman_id": "2bfd47f8-5db7-472f-bbd6-79d1bb982d1e",
+    "name": "My Collection",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58051585",
+    "_collection_link": "https://go.postman.co/collection/58051585-2bfd47f8-5db7-472f-bbd6-79d1bb982d1e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Post Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\n    pm.response.to.have.status(200);\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"admin@clinic.com\",\r\n  \"password\": \"admin123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "login"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Post data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "postman-echo.com/post",
+          "host": [
+            "postman-echo",
+            "com"
+          ],
+          "path": [
+            "post"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Queues",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkRyLiBCdWRpIiwiZW1haWwiOiJkb2t0ZXJAY2xpbmljLmNvbSIsInJvbGUiOiJkb2t0ZXIiLCJpYXQiOjE3ODg5MzcwNTgsImV4cCI6MTc4OTAyMzQ1OH0.Q3ytpXqPVBuJd_9lQI_b62IPxT1b9GOoN53BdLzxYoU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/queues",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "queues"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get registrations",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkRyLiBCdWRpIiwiZW1haWwiOiJkb2t0ZXJAY2xpbmljLmNvbSIsInJvbGUiOiJkb2t0ZXIiLCJpYXQiOjE3ODg5MzcwNTgsImV4cCI6MTc4OTAyMzQ1OH0.Q3ytpXqPVBuJd_9lQI_b62IPxT1b9GOoN53BdLzxYoU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/registrations",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get polyclinics",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkRyLiBCdWRpIiwiZW1haWwiOiJkb2t0ZXJAY2xpbmljLmNvbSIsInJvbGUiOiJkb2t0ZXIiLCJpYXQiOjE3ODg5MzcwNTgsImV4cCI6MTc4OTAyMzQ1OH0.Q3ytpXqPVBuJd_9lQI_b62IPxT1b9GOoN53BdLzxYoU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/polyclinics",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "polyclinics"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get doctors",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkRyLiBCdWRpIiwiZW1haWwiOiJkb2t0ZXJAY2xpbmljLmNvbSIsInJvbGUiOiJkb2t0ZXIiLCJpYXQiOjE3ODg5MzcwNTgsImV4cCI6MTc4OTAyMzQ1OH0.Q3ytpXqPVBuJd_9lQI_b62IPxT1b9GOoN53BdLzxYoU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/doctors",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "doctors"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get patients",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkRyLiBCdWRpIiwiZW1haWwiOiJkb2t0ZXJAY2xpbmljLmNvbSIsInJvbGUiOiJkb2t0ZXIiLCJpYXQiOjE3ODg4ODM1MjEsImV4cCI6MTc4ODk2OTkyMX0.IEeN241og5Tl5xqHvcEYLWIquca2krCei27VdfnHtNE",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/patients",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "patients"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get dashboard",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkRyLiBCdWRpIiwiZW1haWwiOiJkb2t0ZXJAY2xpbmljLmNvbSIsInJvbGUiOiJkb2t0ZXIiLCJpYXQiOjE3ODg4NjM0MTUsImV4cCI6MTc4ODk0OTgxNX0.7g0Jk4jgeorgq4axSbewuTBJbKCbgLhWkWeE-1DBFfQ",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/dashboard",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "dashboard"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post medical-records",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkRyLiBCdWRpIiwiZW1haWwiOiJkb2t0ZXJAY2xpbmljLmNvbSIsInJvbGUiOiJkb2t0ZXIiLCJpYXQiOjE3ODg4NTY0MjUsImV4cCI6MTc4ODk0MjgyNX0.pwIHybzu4w7CYboHU0mKt-RSgs_jJvdDawAInt22Rms",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "   {\r\n     \"registration_id\": 1,\r\n     \"complaint\": \"Demam sejak 2 hari, batuk berdahak\",\r\n     \"blood_pressure\": \"120/80\",\r\n     \"temperature\": \"38.5\",\r\n     \"weight\": \"60\",\r\n     \"height\": \"165\",\r\n     \"diagnosis\": \"ISPA (Infeksi Saluran Pernapasan Akut)\",\r\n     \"treatment_plan\": \"Istirahat cukup, minum air putih banyak, kontrol jika tidak membaik dalam 3 hari\",\r\n     \"actions\": [\"Nebulizer\", \"Pengukuran saturasi oksigen\"],\r\n     \"prescriptions\": [\r\n       { \"medicine_name\": \"Paracetamol 500mg\", \"dosage\": \"3x1 setelah makan\", \"quantity\": \"10 tablet\" },\r\n       { \"medicine_name\": \"OBH Combi Syrup\", \"dosage\": \"3x1 sendok takar\", \"quantity\": \"1 botol\" }\r\n     ]\r\n   }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/medical-records",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "medical-records"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Put queues/1/call",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluaXN0cmF0b3IiLCJlbWFpbCI6ImFkbWluQGNsaW5pYy5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODg4NTU0NDIsImV4cCI6MTc4ODk0MTg0Mn0.qgJXwrlWN4NLKrQv9rWyVCiiS2x6_ZDzv5zd6fh7en4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/queues/1/call",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "queues",
+            "1",
+            "call"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get queues",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluaXN0cmF0b3IiLCJlbWFpbCI6ImFkbWluQGNsaW5pYy5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODg4NTU0NDIsImV4cCI6MTc4ODk0MTg0Mn0.qgJXwrlWN4NLKrQv9rWyVCiiS2x6_ZDzv5zd6fh7en4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/queues",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "queues"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post registrations",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluaXN0cmF0b3IiLCJlbWFpbCI6ImFkbWluQGNsaW5pYy5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODg4NTU0NDIsImV4cCI6MTc4ODk0MTg0Mn0.qgJXwrlWN4NLKrQv9rWyVCiiS2x6_ZDzv5zd6fh7en4",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "   {\r\n     \"patient_id\": 1,\r\n     \"doctor_id\": 1,\r\n     \"poly_id\": 1,\r\n     \"payment_type\": \"Umum\",\r\n     \"initial_complaint\": \"Demam dan batuk sejak 2 hari\"\r\n   }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/registrations",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "registrations"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post patients",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkFkbWluaXN0cmF0b3IiLCJlbWFpbCI6ImFkbWluQGNsaW5pYy5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODg4NTQ2OTMsImV4cCI6MTc4ODk0MTA5M30.80G9dH5mWJyoHXtAKte6zjezoH0UjgN8HipJOLNo65I",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "   {\r\n     \"nik\": \"3273010101990001\",\r\n     \"name\": \"Budi Santoso\",\r\n     \"gender\": \"L\",\r\n     \"birth_date\": \"1990-01-01\",\r\n     \"phone\": \"081234567890\",\r\n     \"address\": \"Jl. Merdeka No. 10, Bandung\"\r\n   }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/patients",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "patients"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

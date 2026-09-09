@@ -7,31 +7,91 @@
 .stat-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
   padding: var(--space-5);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 6px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-left-color 0.2s ease;
+  opacity: 0;
+  animation: statCardIn 0.5s ease forwards;
+}
+
+/* jeda muncul tiap kartu, urut dari kiri ke kanan */
+.stat-card:nth-child(1) { animation-delay: 0.03s; }
+.stat-card:nth-child(2) { animation-delay: 0.09s; }
+.stat-card:nth-child(3) { animation-delay: 0.15s; }
+.stat-card:nth-child(4) { animation-delay: 0.21s; }
+.stat-card:nth-child(5) { animation-delay: 0.27s; }
+
+@keyframes statCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(18, 56, 50, 0.06), 0 12px 28px rgba(18, 56, 50, 0.09);
+  border-left-width: 6px;
 }
 
 .stat-card-label {
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
   color: var(--color-text-muted);
-  font-weight: 500;
 }
 
 .stat-card-value {
-  font-size: 30px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.1;
   color: var(--color-primary-dark);
+  font-variant-numeric: tabular-nums;
 }
 
 .state-text {
+  font-family: var(--font-body);
   color: var(--color-text-muted);
   font-size: 14px;
 }
 
 .state-error {
   color: var(--color-danger);
+  font-weight: 500;
+}
+
+.stat-card--waiting { border-left-color: var(--color-warning); }
+.stat-card--waiting .stat-card-value { color: #B87A1F; }
+
+.stat-card--done { border-left-color: var(--color-success); }
+.stat-card--done .stat-card-value { color: #2F7A4F; }
+
+.stat-card--today { border-left-color: var(--color-info); }
+.stat-card--today .stat-card-value { color: #3A648A; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-card {
+    animation: none;
+    opacity: 1;
+  }
+  .stat-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

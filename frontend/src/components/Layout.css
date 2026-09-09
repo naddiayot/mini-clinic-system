@@ -1,59 +1,95 @@
 .app-layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 248px 1fr;
   min-height: 100vh;
 }
 
 /* Sidebar */
 .sidebar {
-  background: var(--color-primary-dark);
+  background: linear-gradient(180deg, var(--color-primary-dark) 0%, #0C2825 100%);
   color: #ffffff;
   padding: var(--space-5) var(--space-4);
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  position: relative;
 }
 
 .sidebar-brand {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  font-weight: 700;
-  font-size: 16px;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.2px;
 }
 
 .sidebar-brand-mark {
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
-  background: var(--color-accent);
-  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, #C97F2E 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-primary-dark);
+  box-shadow: 0 2px 8px rgba(227, 163, 78, 0.35);
+  flex-shrink: 0;
 }
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 2px;
 }
 
 .sidebar-link {
-  padding: 10px 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
   border-radius: var(--radius-sm);
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.68);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: background 0.15s ease, color 0.15s ease;
+  border-left: 3px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, padding-left 0.15s ease;
+}
+
+.sidebar-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  opacity: 0.75;
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 .sidebar-link:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
   color: #ffffff;
+  padding-left: 18px;
+}
+
+.sidebar-link:hover svg {
+  opacity: 1;
 }
 
 .sidebar-link.active {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(227, 163, 78, 0.14);
+  border-left-color: var(--color-accent);
   color: #ffffff;
+  font-weight: 600;
+}
+
+.sidebar-link.active svg {
+  opacity: 1;
+  color: var(--color-accent);
 }
 
 /* Main area */
@@ -70,10 +106,37 @@
   padding: var(--space-5) var(--space-6);
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.topbar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, transparent 40%);
+}
+
+.topbar-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .topbar h1 {
-  font-size: 20px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--color-primary-dark);
+  line-height: 1.2;
+}
+
+.topbar-date {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-transform: capitalize;
 }
 
 .topbar-user {
@@ -81,6 +144,24 @@
   align-items: center;
   gap: var(--space-4);
 }
+
+.topbar-user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  flex-shrink: 0;
+}
+
+.topbar-user-avatar--admin { background: var(--color-primary); }
+.topbar-user-avatar--dokter { background: var(--color-info); }
+.topbar-user-avatar--petugas_pendaftaran { background: var(--color-progress); }
 
 .topbar-user-info {
   display: flex;
@@ -91,6 +172,7 @@
 .topbar-user-name {
   font-size: 14px;
   font-weight: 600;
+  color: var(--color-text);
 }
 
 .topbar-user-role {
@@ -98,20 +180,35 @@
   color: var(--color-text-muted);
 }
 
+.topbar-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--color-border);
+}
+
 .btn-logout {
-  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
   background: transparent;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 500;
-  color: var(--color-text);
+  color: var(--color-primary-dark);
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-logout svg {
+  width: 15px;
+  height: 15px;
 }
 
 .btn-logout:hover {
-  background: var(--color-bg);
+  background: var(--color-accent-soft);
+  border-color: var(--color-accent);
 }
 
 .content-area {

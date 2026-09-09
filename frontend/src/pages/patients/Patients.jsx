@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Eye, Pencil, Trash2 } from 'lucide-react';
 import { getPatients, deletePatient } from '../../services/patientService';
 import Layout from '../../components/Layout';
 import './Patients.css';
@@ -110,9 +111,27 @@ export default function Patients() {
                         <td>{formatDate(p.birth_date)}</td>
                         <td>{p.phone}</td>
                         <td className="actions">
-                          <button onClick={() => navigate(`/patients/${p.id}`)}>Detail</button>
-                          <button onClick={() => navigate(`/patients/${p.id}/edit`)}>Edit</button>
-                          <button className="btn-danger" onClick={() => handleDelete(p.id, p.name)}>Hapus</button>
+                          <button
+                            className="btn-view"
+                            title="Lihat detail"
+                            onClick={() => navigate(`/patients/${p.id}`)}
+                          >
+                            <Eye aria-hidden="true" />
+                          </button>
+                          <button
+                            className="btn-edit"
+                            title="Edit"
+                            onClick={() => navigate(`/patients/${p.id}/edit`)}
+                          >
+                            <Pencil aria-hidden="true" />
+                          </button>
+                          <button
+                            className="btn-danger"
+                            title="Hapus"
+                            onClick={() => handleDelete(p.id, p.name)}
+                          >
+                            <Trash2 aria-hidden="true" />
+                          </button>
                         </td>
                       </tr>
                     ))

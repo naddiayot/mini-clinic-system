@@ -11,7 +11,10 @@
 }
 
 .patients-header h1 {
-  font-size: 20px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
 }
 
 .btn-primary {
@@ -21,13 +24,17 @@
   padding: 9px 16px;
   border-radius: var(--radius-sm);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.15s ease;
+  transition: background 0.15s ease, transform 0.1s ease;
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  background: var(--color-primary);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
 }
 
 .btn-secondary {
@@ -39,10 +46,12 @@
   font-weight: 500;
   color: var(--color-text);
   cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-secondary:hover {
   background: var(--color-bg);
+  border-color: #D8CFC0;
 }
 
 .patients-search {
@@ -57,6 +66,19 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font-size: 14px;
+  background: var(--color-bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.patients-search input::placeholder {
+  color: #A9A090;
+}
+
+.patients-search input:focus {
+  outline: none;
+  background: var(--color-surface);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
 }
 
 .patients-table-card {
@@ -74,17 +96,31 @@
 
 .patients-table th {
   text-align: left;
-  font-size: 13px;
+  font-size: 12.5px;
+  letter-spacing: 0.3px;
   color: var(--color-text-muted);
-  font-weight: 500;
+  font-weight: 600;
   padding: 10px 12px;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
 }
 
 .patients-table td {
-  padding: 12px;
+  padding: 13px 12px;
   border-bottom: 1px solid var(--color-border);
   font-size: 14px;
+  color: var(--color-text);
+}
+
+.patients-table tbody tr {
+  transition: background 0.12s ease;
+}
+
+.patients-table tbody tr:hover {
+  background: var(--color-bg);
+}
+
+.patients-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .actions {
@@ -93,26 +129,70 @@
 }
 
 .actions button {
-  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-surface);
-  font-size: 13px;
+  color: var(--color-text-muted);
   cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
 }
 
-.actions button:hover {
-  background: var(--color-bg);
+.actions button svg {
+  width: 15px;
+  height: 15px;
 }
 
+.actions button:active {
+  transform: translateY(1px);
+}
+
+/* Lihat detail — biru info */
+.btn-view {
+  background: var(--color-info-soft);
+  border-color: transparent;
+  color: var(--color-info);
+}
+
+.btn-view:hover {
+  background: var(--color-info);
+  color: #ffffff;
+}
+
+/* Edit — kuning/amber aksen */
+.btn-edit {
+  background: var(--color-accent-soft);
+  border-color: transparent;
+  color: #B87A1F;
+}
+
+.btn-edit:hover {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Hapus — merah danger */
 .btn-danger {
-  color: var(--color-danger) !important;
-  border-color: var(--color-danger) !important;
+  background: var(--color-danger-soft);
+  border-color: transparent;
+  color: var(--color-danger);
+}
+
+.btn-danger:hover {
+  background: var(--color-danger);
+  color: #ffffff;
 }
 
 .empty-row {
   text-align: center;
   padding: var(--space-6) !important;
+  color: var(--color-text-muted);
+  font-size: 14px;
 }
 
 .pagination {
@@ -123,6 +203,7 @@
   margin-top: var(--space-5);
   font-size: 14px;
   color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .pagination button {
@@ -131,6 +212,12 @@
   border-radius: var(--radius-sm);
   background: var(--color-surface);
   cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.pagination button:not(:disabled):hover {
+  background: var(--color-bg);
+  border-color: #D8CFC0;
 }
 
 .pagination button:disabled {

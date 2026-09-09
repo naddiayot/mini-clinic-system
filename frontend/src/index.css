@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   /* Warna utama - teal klinis, menenangkan & profesional */
@@ -23,6 +23,7 @@
 
   /* Tipografi */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Quicksand', var(--font-sans);
 
   /* Spacing scale */
   --space-1: 4px;
@@ -33,10 +34,26 @@
   --space-6: 32px;
   --space-8: 48px;
 
-  /* Radius & shadow - dipakai konsisten, tidak seragam di semua elemen */
+  /* Radius & shadow */
   --radius-sm: 6px;
   --radius-md: 10px;
   --shadow-card: 0 1px 3px rgba(11, 37, 33, 0.08), 0 1px 2px rgba(11, 37, 33, 0.06);
+
+  /* ===== Palet gradien per halaman (dipakai untuk bentuk dekoratif) ===== */
+  --theme-dashboard-a: #0b6e64;
+  --theme-dashboard-b: #d97a34;
+
+  --theme-patients-a: #3d5a99;
+  --theme-patients-b: #8a7fd1;
+
+  --theme-registrations-a: #d97a34;
+  --theme-registrations-b: #f0b862;
+
+  --theme-queues-a: #7d4fb0;
+  --theme-queues-b: #cd8fe0;
+
+  --theme-examinations-a: #1e8a5f;
+  --theme-examinations-b: #7fd9ad;
 }
 
 * {
@@ -57,6 +74,7 @@ body {
 
 h1, h2, h3, h4 {
   margin: 0;
+  font-family: var(--font-display);
   font-weight: 600;
   letter-spacing: -0.01em;
 }
@@ -78,7 +96,6 @@ input, select, textarea {
   font-size: 14px;
 }
 
-/* Fokus keyboard tetap terlihat jelas (aksesibilitas) */
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
@@ -86,4 +103,34 @@ textarea:focus-visible,
 a:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* ===== Transisi halus saat pindah halaman ===== */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: pageEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ===== Bentuk dekoratif melayang di topbar ===== */
+@keyframes shapeFloat {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(-6px, 6px) rotate(6deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition,
+  .topbar-shape {
+    animation: none !important;
+  }
 }

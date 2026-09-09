@@ -138,3 +138,388 @@
     display: none;
   }
 }
+
+/* ================================
+   ANIMASI TAMBAHAN - LOGIN PAGE
+   Tidak mengubah style yang sudah ada
+   ================================ */
+
+/* Animasi masuk halaman */
+.login-page {
+  animation: pageFadeIn 0.7s ease-out;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Animasi panel kiri */
+.login-brand {
+  animation: brandSlideIn 0.8s ease-out;
+}
+
+@keyframes brandSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Animasi logo/icon klinik */
+.login-brand-mark {
+  animation: markPop 0.8s ease-out 0.2s both;
+}
+
+@keyframes markPop {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+/* Animasi teks identitas klinik */
+.login-brand-text {
+  animation: textFadeUp 0.8s ease-out 0.35s both;
+}
+
+@keyframes textFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Animasi footer kiri */
+.login-brand-footer {
+  animation: footerFadeUp 0.8s ease-out 0.5s both;
+}
+
+@keyframes footerFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Animasi form kanan */
+.login-form-wrap {
+  animation: formSlideIn 0.8s ease-out 0.15s both;
+}
+
+@keyframes formSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Efek input ketika diklik */
+.field input {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.field input:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  outline: none;
+}
+
+
+/* Efek tombol */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efek kilau saat hover */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::after {
+  left: 130%;
+}
+
+
+/* Tombol sedikit naik saat hover */
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+
+/* Tombol kembali ketika ditekan */
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+
+/* Animasi pesan error */
+.login-error {
+  animation: errorShake 0.4s ease-out;
+}
+
+@keyframes errorShake {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+
+  75% {
+    transform: translateX(-4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Menghormati pengguna yang mematikan animasi */
+@media (prefers-reduced-motion: reduce) {
+  .login-page,
+  .login-brand,
+  .login-brand-mark,
+  .login-brand-text,
+  .login-brand-footer,
+  .login-form-wrap,
+  .login-error {
+    animation: none;
+  }
+
+  .field input,
+  .btn-primary,
+  .btn-primary::after {
+    transition: none;
+  }
+}
+
+/* ==========================================
+   DECORASI PANEL HIJAU
+   Tambahan saja - tidak mengubah CSS sebelumnya
+   ========================================== */
+
+/* Menjadi wadah untuk elemen dekorasi */
+.login-brand {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Lingkaran dekorasi besar di kanan atas */
+.login-brand::before {
+  content: "";
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  top: -180px;
+  right: -150px;
+  box-shadow:
+    0 0 0 45px rgba(255, 255, 255, 0.025),
+    0 0 0 90px rgba(255, 255, 255, 0.018);
+  animation: circleFloat 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+
+/* Lingkaran kecil dekorasi kiri bawah */
+.login-brand::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  bottom: -140px;
+  left: -100px;
+  box-shadow:
+    0 0 0 35px rgba(255, 255, 255, 0.02),
+    0 0 0 70px rgba(255, 255, 255, 0.015);
+  animation: circleFloatReverse 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+
+/* Animasi lingkaran kanan */
+@keyframes circleFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-15px, 15px) scale(1.04);
+  }
+}
+
+
+/* Animasi lingkaran kiri */
+@keyframes circleFloatReverse {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(12px, -12px) scale(1.03);
+  }
+}
+
+
+/* ==========================================
+   POLA PLUS MEDIS
+   ========================================== */
+
+.login-brand-mark::after {
+  content: "+";
+  position: absolute;
+  left: 48px;
+  top: 115px;
+  font-size: 22px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.08);
+  animation: plusFloat 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+
+/* Plus kedua menggunakan text footer */
+.login-brand-footer::before {
+  content: "+";
+  position: absolute;
+  right: 80px;
+  bottom: 100px;
+  font-size: 30px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.06);
+  animation: plusFloat 6s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+
+@keyframes plusFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+
+/* ==========================================
+   GARIS DEKORATIF HALUS
+   ========================================== */
+
+.login-brand-text::before {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.22);
+  animation: lineAppear 0.8s ease-out 0.5s both;
+}
+
+
+@keyframes lineAppear {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 42px;
+    opacity: 1;
+  }
+}
+
+
+/* ==========================================
+   EFEK GLOW HALUS DI BELAKANG BRAND
+   ========================================== */
+
+.login-brand-text h1 {
+  text-shadow: 0 2px 18px rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==========================================
+   MEMASTIKAN KONTEN TETAP DI ATAS DEKORASI
+   ========================================== */
+
+.login-brand > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .login-brand::before,
+  .login-brand::after,
+  .login-brand-mark::after,
+  .login-brand-footer::before {
+    animation: none;
+  }
+}

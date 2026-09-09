@@ -2,23 +2,116 @@
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  background: var(--color-primary-dark);
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, #0C2825 100%);
   color: #ffffff;
-  padding: var(--space-5);
+  padding: var(--space-5) var(--space-6);
   border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(18, 56, 50, 0.22);
+}
+
+.queue-now-calling::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  right: -8%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(227, 163, 78, 0.18) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .queue-now-label {
   font-size: 13px;
-  opacity: 0.8;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  opacity: 0.75;
+}
+
+.queue-now-label::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  margin-right: 6px;
+  animation: queueDotPulse 1.6s ease-in-out infinite;
 }
 
 .queue-now-number {
-  font-size: 32px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  animation: queueNumberIn 0.4s ease;
 }
 
 .queue-now-patient {
   font-size: 14px;
-  opacity: 0.9;
+  opacity: 0.85;
+}
+
+@keyframes queueNumberIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes queueDotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .queue-now-number { animation: none; }
+  .queue-now-label::before { animation: none; }
+}
+
+.actions .btn-call {
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--color-info-soft);
+  color: #1E40AF;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.actions .btn-call:hover {
+  background: var(--color-info);
+  color: #ffffff;
+}
+
+.actions .btn-finish {
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--color-success-soft);
+  color: #065F46;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.actions .btn-finish:hover {
+  background: var(--color-success);
+  color: #ffffff;
+}
+
+.patients-table td strong {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--color-primary-dark);
 }

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Palette */
+  --color-primary-dark: #123832;
+  --color-primary: #1F5C52;
+  --color-primary-soft: #2A6F63;
+
+  --color-accent: #E3A34E;
+  --color-accent-soft: #F6DFB8;
+
+    --color-progress: #6D4FA8;
+  --color-progress-soft: #EAE3F5;
+
+  --color-success: #4C9A6A;
+  --color-success-soft: #DCEFE2;
+  --color-info: #4C7EA8;
+  --color-info-soft: #DCE7F0;
+  --color-warning: #E3A34E;
+  --color-warning-soft: #FBEBD1;
+
+  --color-bg: #FAF6F0;
+  --color-surface: #FFFFFF;
+  --color-border: #E7E0D4;
+  --color-text: #1C2624;
+  --color-text-muted: #6E7A76;
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Spacing (unchanged) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+}

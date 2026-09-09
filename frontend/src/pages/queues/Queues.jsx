@@ -61,8 +61,12 @@ export default function Queues() {
         {currentlyCalled && (
           <div className="queue-now-calling">
             <span className="queue-now-label">Sedang Dipanggil</span>
-            <span className="queue-now-number">{currentlyCalled.queue_number}</span>
-            <span className="queue-now-patient">{currentlyCalled.patient_name} — {currentlyCalled.poly_name}</span>
+            <span className="queue-now-number" key={currentlyCalled.queue_number}>
+              {currentlyCalled.queue_number}
+            </span>
+            <span className="queue-now-patient">
+              {currentlyCalled.patient_name} — {currentlyCalled.poly_name}
+            </span>
           </div>
         )}
 
@@ -104,10 +108,14 @@ export default function Queues() {
                       </td>
                       <td className="actions">
                         {q.status === 'menunggu' && (
-                          <button onClick={() => handleCall(q.id)}>Panggil</button>
+                          <button className="btn-call" onClick={() => handleCall(q.id)}>
+                            Panggil
+                          </button>
                         )}
                         {q.status === 'dipanggil' && (
-                          <button onClick={() => handleFinish(q.id)}>Selesai</button>
+                          <button className="btn-finish" onClick={() => handleFinish(q.id)}>
+                            Selesai
+                          </button>
                         )}
                         {q.status === 'selesai' && (
                           <span className="state-text">—</span>
