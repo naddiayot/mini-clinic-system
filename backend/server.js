@@ -17,6 +17,8 @@ const queueRoutes = require('./src/routes/queue.routes');
 const medicalRecordRoutes = require('./src/routes/medicalRecord.routes');
 const prescriptionRoutes = require('./src/routes/prescription.routes');
 const dashboardRoutes = require('./src/routes/dashboard.routes');
+const doctorRoutes = require('./src/routes/doctor.routes');
+const polyclinicRoutes = require('./src/routes/polyclinic.routes');
 
 
 const app = express();
@@ -35,6 +37,10 @@ app.use('/api/queues', queueRoutes);
 app.use('/api/medical-records', medicalRecordRoutes);
 app.use('/api/prescriptions', prescriptionRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/doctors', doctorRoutes);
+app.use('/api/polyclinics', polyclinicRoutes);
+
+
 
 // Route default (kalau buka root url)
 app.get('/', (req, res) => {

@@ -4,6 +4,8 @@ import Dashboard from './pages/Dashboard';
 import Patients from './pages/patients/Patients';
 import PatientForm from './pages/patients/PatientForm';
 import PatientDetail from './pages/patients/PatientDetail';
+import Registrations from './pages/registrations/Registrations';
+import RegistrationForm from './pages/registrations/RegistrationForm';
 import ProtectedRoute from './routes/ProtectedRoute';
 
 function App() {
@@ -56,7 +58,25 @@ function App() {
         }
       />
 
-      {/* Halaman Pendaftaran, Antrean, Pemeriksaan akan ditambahkan
+      <Route
+        path="/registrations"
+        element={
+          <ProtectedRoute>
+            <Registrations />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/registrations/new"
+        element={
+          <ProtectedRoute>
+            <RegistrationForm />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Halaman Antrean, Pemeriksaan akan ditambahkan
           di sini bertahap, mengikuti pola yang sama seperti /dashboard */}
 
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
