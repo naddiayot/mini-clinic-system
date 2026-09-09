@@ -1,0 +1,139 @@
+.patients-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.patients-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.patients-header h1 {
+  font-size: 20px;
+}
+
+.btn-primary {
+  background: var(--color-primary-dark);
+  color: #ffffff;
+  border: none;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  padding: 9px 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg);
+}
+
+.patients-search {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.patients-search input {
+  flex: 1;
+  max-width: 320px;
+  padding: 9px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.patients-table-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+}
+
+.patients-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patients-table th {
+  text-align: left;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.patients-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.actions button {
+  padding: 5px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  background: var(--color-bg);
+}
+
+.btn-danger {
+  color: var(--color-danger) !important;
+  border-color: var(--color-danger) !important;
+}
+
+.empty-row {
+  text-align: center;
+  padding: var(--space-6) !important;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.pagination button {
+  padding: 6px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
